@@ -1,10 +1,10 @@
 APP="oofilesplit"
-CC?= gcc
+CC?= clang
 
 compile:
-	$(CC) main.c -o $(APP)
+	$(CC) main.c -O2 -o $(APP)
 
-test:
+test: compile
 	./$(APP) -h
 
 clean:

@@ -1,9 +1,8 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-#include <math.h>
 
-long file_split_size = 1024000*49; // 49MB for split file size 
+long file_split_size = 1024*1024*50; // 50MB for split file size
 
 
 long getFileSize(char *file_name) 
@@ -44,7 +43,7 @@ int splitFile(char *fileIn, long maxSize)
     FILE *fIn;
     FILE *fOut;
     char buffer[1024 * 16];
-    long size, read, write;
+    unsigned long size, read, write;
 
     if ((fileIn != NULL) && (maxSize > 0)) {
         fIn = fopen(fileIn, "rb");
@@ -105,9 +104,13 @@ int splitFile(char *fileIn, long maxSize)
 
 
 int ShowUsage() {
-    printf("*************************************\n");
+    printf("**************************************************************************\n");
+    printf("This application used to spilt the target file to small pieces (50MB)\n");
+    printf("\n");
     printf("Usage: ./oofilesplit filename2split\n");
-    printf("*************************************\n");
+    printf("\n");
+    printf("Enjoy it!\n");
+    printf("**************************************************************************\n");
 
     return 0;
 }
